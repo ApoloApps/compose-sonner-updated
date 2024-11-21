@@ -1,6 +1,6 @@
 [versions]
 
-compose-plugin = "1.8.0-dev1920"
+composePlugin = "1.8.0-dev1920"
 kotlin = "2.1.0-RC2"
 vanniktechMavenPublish = "0.30.0"
 coroutines = "1.9.0"
@@ -11,7 +11,7 @@ kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-t
 
 [plugins]
 
-jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }
+jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "composePlugin" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 mavenPublish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktechMavenPublish" }

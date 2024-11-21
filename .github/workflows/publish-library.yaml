@@ -2,15 +2,45 @@ name: Publish library
 
 on:
   workflow_dispatch:
-
+    inputs:
+      kotlinVersion:
+        description: 'Kotlin Version'
+        type: string
+      composeVersion:
+        description: 'Compose Version'
+        type: string
+      coroutinesVersion:
+        description: 'Coroutines Version'
+        type: string
+        default: '1.9.0'
 jobs:
-  # Took it from https://github.com/chrisbanes/haze/blob/main/.github/workflows/build.yml
   deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
       - uses: actions/checkout@v4
+
+      - name: Edit TOML file Kotlin Version
+        uses: rahulp959/toml-editor@v1.0.1
+        with:
+          file: "gradle/libs.versions.toml"
+          key: "versions.kotlin"
+          value: "${{ inputs.kotlinVersion }}"
+
+      - name: Edit TOML file Compose Version
+        uses: rahulp959/toml-editor@v1.0.1
+        with:
+          file: "gradle/libs.versions.toml"
+          key: "versions.composePlugin"
+          value: "${{ inputs.composeVersion }}"
+      - name: Edit TOML file Coroutines Version
+        uses: rahulp959/toml-editor@v1.0.1
+        with:
+          file: "gradle/libs.versions.toml"
+          key: "versions.coroutines"
+          value: "${{ inputs.coroutinesVersion }}"
+
 
       - name: Setup JDK
         uses: actions/setup-java@v4
@@ -39,4 +69,3 @@ jobs:
           ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.SIGNING_KEY }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyId: ${{ secrets.SIGNING_KEY_ID }}
           ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.SIGNING_KEY_PASSWORD }}
-
