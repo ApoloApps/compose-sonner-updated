@@ -89,7 +89,6 @@ mavenPublishing {
         artifactId = "sonner-compose",
         version = libs.versions.composePlugin.get()
     )
-    println("Publishing to Maven Central with version ${libs.versions.composePlugin}")
 
     pom {
 
@@ -127,8 +126,8 @@ mavenPublishing {
     signAllPublications()
 
 }
-tasks.named("publishAndReleaseToMavenCentral") {
+tasks.named("createStagingRepository") {
     doFirst {
-        println("Publishing to Maven Central with version ${libs.versions.composePlugin.get()}")
+        println("Hey, im publishing as Compose version ${libs.versions.composePlugin.get()}")
     }
 }
