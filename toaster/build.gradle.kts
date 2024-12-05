@@ -87,7 +87,7 @@ mavenPublishing {
     coordinates(
         groupId = "com.composevisualeditor.apolostudio",
         artifactId = "sonner-compose",
-        version = libs.versions.composePlugin.toString()
+        version = libs.versions.composePlugin.get()
     )
     println("Publishing to Maven Central with version ${libs.versions.composePlugin}")
 
@@ -127,8 +127,8 @@ mavenPublishing {
     signAllPublications()
 
 }
-tasks.register("debugVersion") {
-    doLast {
+tasks.named("publishAndReleaseToMavenCentral") {
+    doFirst {
         println("Publishing to Maven Central with version ${libs.versions.composePlugin.get()}")
     }
 }
