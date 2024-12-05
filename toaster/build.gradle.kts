@@ -89,6 +89,7 @@ mavenPublishing {
         artifactId = "sonner-compose",
         version = libs.versions.composePlugin.toString()
     )
+    println("Publishing to Maven Central with version ${libs.versions.composePlugin}")
 
     pom {
 
