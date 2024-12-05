@@ -127,3 +127,8 @@ mavenPublishing {
     signAllPublications()
 
 }
+tasks.register("debugVersion") {
+    doLast {
+        println("Publishing to Maven Central with version ${libs.versions.composePlugin.get()}")
+    }
+}
