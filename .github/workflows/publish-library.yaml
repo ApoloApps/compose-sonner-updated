@@ -43,7 +43,9 @@ jobs:
           key: "versions.coroutines"
           value: "${{ inputs.coroutinesVersion }}"
 
-
+      - name: Display Updated TOML File
+        run: cat gradle/libs.versions.toml
+        
       - name: Setup JDK
         uses: actions/setup-java@v4
         with:
@@ -62,7 +64,8 @@ jobs:
 
      # - name: Build with Gradle
      #   run: ./gradlew build
-
+      - name: Display Updated Build gradle File
+        run: cat toaster/build.gradle.kts
       - name: Deploy to Sonatype
         run: ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache
         env:
