@@ -40,8 +40,7 @@ jobs:
           file: "gradle/libs.versions.toml"
           key: "versions.coroutines"
           value: "${{ inputs.coroutinesVersion }}"
-
-
+        
       - name: Setup JDK
         uses: actions/setup-java@v4
         with:
@@ -58,9 +57,8 @@ jobs:
       - name: Grant execute permission for Gradlew
         run: chmod +x gradlew
 
-      - name: Build with Gradle
-        run: ./gradlew build
-
+     # - name: Build with Gradle
+     #   run: ./gradlew build
       - name: Deploy to Sonatype
         run: ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache
         env:
