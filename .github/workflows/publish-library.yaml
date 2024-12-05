@@ -6,9 +6,11 @@ on:
       kotlinVersion:
         description: 'Kotlin Version'
         type: string
+        default: '2.1.0'
       composeVersion:
         description: 'Compose Version'
         type: string
+        default: '1.8.0-alpha01'
       coroutinesVersion:
         description: 'Coroutines Version'
         type: string
@@ -58,8 +60,8 @@ jobs:
       - name: Grant execute permission for Gradlew
         run: chmod +x gradlew
 
-      - name: Build with Gradle
-        run: ./gradlew build
+     # - name: Build with Gradle
+     #   run: ./gradlew build
 
       - name: Deploy to Sonatype
         run: ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache
