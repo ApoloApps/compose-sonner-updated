@@ -60,7 +60,7 @@ jobs:
      # - name: Build with Gradle
      #   run: ./gradlew build
       - name: Deploy to Sonatype
-        run: ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache --full-stacktrace
+        run: ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache --scan --no-build-cache
         env:
           ORG_GRADLE_PROJECT_mavenCentralUsername: ${{ secrets.MAVEN_CENTRAL_USER_NAME }}
           ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
