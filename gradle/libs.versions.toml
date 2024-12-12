@@ -1,6 +1,6 @@
 [versions]
 
-composePlugin = "1.8.0-alpha01"
+composePlugin = "1.8.0+dev1969"
 kotlin = "2.1.0"
 vanniktechMavenPublish = "0.30.0"
 coroutines = "1.9.0"
