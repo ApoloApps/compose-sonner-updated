@@ -87,7 +87,7 @@ mavenPublishing {
     coordinates(
         groupId = "com.composevisualeditor.apolostudio",
         artifactId = "sonner-compose",
-        version = libs.versions.composePlugin.get()
+        version = libs.versions.composePlugin.get().replace("+", "-")
     )
 
     pom {
@@ -128,6 +128,6 @@ mavenPublishing {
 }
 tasks.named("createStagingRepository") {
     doFirst {
-        println("Hey, im publishing as Compose version ${libs.versions.composePlugin.get()}")
+        println("Hey, im publishing as Compose version ${libs.versions.composePlugin.get().replace("+", "-")}")
     }
 }
