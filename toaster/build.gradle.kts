@@ -85,7 +85,7 @@ kotlin {
 mavenPublishing {
 
     coordinates(
-        groupId = "com.composevisualeditor.apolostudio",
+        groupId = "com.composevisualeditor.apoloapps",
         artifactId = "sonner-compose",
         version = libs.versions.composePlugin.get().replace("+", "-")
     )
@@ -95,8 +95,8 @@ mavenPublishing {
         name.set(project.name)
         description.set("A Compose Multiplatform library for displaying Toasts")
         inceptionYear.set("2024")
-        url.set("https://github.com/apolostudio/compose-sonner-updated")
-
+        url.set("https://github.com/ApoloApps/compose-sonner-updated")
+        
         licenses {
             license {
                 name.set("MIT")
@@ -106,15 +106,15 @@ mavenPublishing {
 
         developers {
             developer {
-                id.set("apolostudio")
-                name.set("Apolo Studio")
-                email.set("contact@composevisualeditor.com")
-                url.set("https://github.com/apolostudio/")
+                id.set("apoloapps")
+                name.set("Apolo Apps")
+                email.set("info@composevisualeditor.com")
+                url.set("https://github.com/ApoloApps/")
             }
         }
 
         scm {
-            url.set("https://github.com/apolostudio/compose-sonner-updated")
+            url.set("https://github.com/ApoloApps/compose-sonner-updated")
         }
 
     }
