@@ -9,6 +9,9 @@ on:
       composeVersion:
         description: 'Compose Version'
         type: string
+      libraryVersion:
+        description: 'Library Version'
+        type: string
       coroutinesVersion:
         description: 'Coroutines Version'
         type: string
@@ -40,11 +43,18 @@ jobs:
           file: "gradle/libs.versions.toml"
           key: "versions.coroutines"
           value: "${{ inputs.coroutinesVersion }}"
+
+      - name: Edit TOML file Library Version
+        uses: rahulp959/toml-editor@v1.0.1
+        with:
+          file: "gradle/libs.versions.toml"
+          key: "versions.library"
+          value: "${{ inputs.libraryVersion }}"
         
       - name: Setup JDK
         uses: actions/setup-java@v4
         with:
-          distribution: 'zulu'
+          distribution: 'jetbrains'
           java-version: 21
           # cache: gradle
 

@@ -58,8 +58,6 @@ kotlin {
 
     sourceSets {
         val desktopMain by getting
-
-
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -75,19 +73,14 @@ kotlin {
             implementation(compose.uiTest)
             implementation(libs.kotlinx.coroutines.test)
         }
-        val desktopTest by getting {
-            dependencies {
-                implementation(compose.desktop.uiTestJUnit4)
-            }
-        }
     }
 }
 mavenPublishing {
 
     coordinates(
         groupId = "com.composevisualeditor.apoloapps",
-        artifactId = "sonner-compose",
-        version = libs.versions.composePlugin.get().replace("+", "-")
+        artifactId = "cve-sonner-compose",
+        version = libs.versions.libraryVersion.get()
     )
 
     pom {
@@ -125,9 +118,4 @@ mavenPublishing {
     // Enable GPG signing for all publications
     signAllPublications()
 
-}
-tasks.named("createStagingRepository") {
-    doFirst {
-        println("Hey, im publishing as Compose version ${libs.versions.composePlugin.get().replace("+", "-")}")
-    }
 }
