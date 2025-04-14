@@ -48,7 +48,7 @@ jobs:
         uses: rahulp959/toml-editor@v1.0.1
         with:
           file: "gradle/libs.versions.toml"
-          key: "versions.library"
+          key: "versions.libraryVersion"
           value: "${{ inputs.libraryVersion }}"
         
       - name: Setup JDK
